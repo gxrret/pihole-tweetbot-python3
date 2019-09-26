@@ -1,4 +1,4 @@
-# Pi-Hole-Ad-Blocker-Tweet-Bot
+# Pi Hole Ad-Blocker Tweet Bot
 
 This is a Python3 script bot that tweets out my Pi-Hole daily statistics to my Twitter developer account [@PIHoleT](https://twitter.com/piholet) like total DNS queries blocked, total blocked ads for the current day, the percentage of ads blocked, and how many domains are currently blacklisted. There are more JSON data types associated with Pi-Hole and you can use whatever you want, I just chose the latter for the most accurate and coherent statistics.
 
