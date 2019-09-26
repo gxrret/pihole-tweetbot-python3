@@ -8,7 +8,7 @@ import urllib
 from urllib.request import urlopen
 
 // Reads and loads JSON data from Pi-Hole api URL specific to your static IP you set for your Raspberry Pi
-data = urlopen('http://path.to.static.ip/admin/api.php').read()
+data = urlopen('http://path.to.your.pihole.url/admin/api.php').read()
 print(data)
 body = data.decode('utf-8')
 data = json.loads(body)
