@@ -7,7 +7,7 @@ import json
 import urllib
 from urllib.request import urlopen
 
-// Reads and loads JSON data from Pi-Hole api URL specific to your static IP you set for your Raspberry Pi
+#Reads and loads JSON data from Pi-Hole api URL specific to your static IP you set for your Raspberry Pi
 data = urlopen('http://path.to.your.pihole.url/admin/api.php').read()
 print(data)
 body = data.decode('utf-8')
@@ -23,7 +23,7 @@ def get_api(cfg):
         return tweepy.API(auth)
 
 def main():
-        // Here we are defining the parameters for accessing Twitter's API securely, fill in the key with your corresponding twitter credentials
+        #Here we are defining the parameters for accessing Twitter's API securely, fill in the key with your corresponding twitter credentials
         cfg = {
                 "consumer_key": "TWTTER_CONSUMER_KEY",
                 "consumer_secret"       :       "TWITTER_CONSUMER_SECRET",
@@ -32,7 +32,7 @@ def main():
                 }
         api = get_api(cfg)
         
-        // The inital tweet that gets posted with string concatenation
+        #The inital tweet that gets posted with string concatenation
         tweet = "I am a Raspberry Pi Python scripted bot\nThis is my daily #Pihole report:\n" + data  + "\n\nTime and date: " + datetime.datetime.today().strftime("%H:%M %m-%d-%Y")
         status = api.update_status(status=tweet)
         print(tweet)
