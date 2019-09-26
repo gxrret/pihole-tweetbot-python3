@@ -10,7 +10,7 @@ Install the following python dependency:
 `sudo tweepy`
 
 
-You'll need `json`, `urllib`, and `datetime`, but those are already pre-defined dependencies when Python is installed.
+You'll need `json`, `urllib`, and `datetime`, but those are already pre-defined dependencies when Python is installed. If you don't have them, go ahead and install them.
 
 ## Cronjob
 
@@ -23,7 +23,9 @@ At the end of crontab, I added this:
 
 The `00 12` refers to a specific time, which this would be 12:00PM. If you want this script to run every hour, day, week, or whatever time scale you want, refer to the [Cronjob documentation here](https://help.ubuntu.com/community/CronHowto)
 
-Add a shebang on the first line of your .py file referring to your Python3 library.
+`dev/null 2>&1` basically throws out any remaining returns from the command, while we are only looking for what we defined in the .py file.
+
+Add a shebang on the first line of your .py file referring to your Python3 library. Refer to the .py file.
 
 ## Twitter Access Token, Token Secret, Consumer Secret
 1. Create a Twitter account https://twitter.com
