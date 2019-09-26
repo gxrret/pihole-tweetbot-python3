@@ -29,10 +29,6 @@ Add a shebang on the first line of your .py file referring to your Python3 libra
 
 2. Apply at https://developer.twitter.com to create your script application and have access to Twitter's OAuth API.
 
-3. Create your app, you don't need a callback URL unless you want one.
-
-4. 
-
-
+3. Create your app, you don't need a callback URL, once there, find your tokens and secrets
 
 ## NEED TO FINISH
