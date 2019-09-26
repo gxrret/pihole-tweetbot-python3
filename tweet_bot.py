@@ -1,4 +1,4 @@
-//shebang needed for cronjob reference
+#shebang needed for cronjob reference
 #!/usr/bin/env python3
 
 import tweepy
