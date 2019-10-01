@@ -7,7 +7,7 @@ This can also be used as a basic template to read and parse JSON data in Python 
 ## Requirements
 
 Install the following python dependency:
-`sudo tweepy`
+`sudo pip install tweepy`
 
 
 You'll need `json`, `urllib`, and `datetime`, but those are already pre-defined dependencies when Python is installed. If you don't have them, go ahead and install them.
