@@ -13,27 +13,32 @@ print(data)
 body = data.decode('utf-8')
 data = json.loads(body)
 
-tweet_template = "\nAds Blocked: %s\nAds Percentage Today: %i\nDNS Queries Today: %s\nDomains Blocked: %s"
+dataTQ = "{:,}".format(data['dns_queries_today'])
+dataQB = "{:,}".format(data['ads_blocked_today'])
+dataPB = "{:.2f}%".format(data['ads_percentage_today'])
+dataDA = "{:,}".format(data['domains_being_blocked'])
 
-data = tweet_template % (data['ads_blocked_today'], float (data['ads_percentage_today']), data['dns_queries_today'], data['domains_being_blocked'])
+tweet_template = "\nTotal DNS Queries: %s\nDNS Queries Blocked: %s\nPercentage Blocked: %s\nDomains on Adlists: %s"
+
+data = tweet_template % (dataTQ, dataQB, dataPB, dataDA)
 
 def get_api(cfg):
-        auth = tweepy.OAuthHandler(cfg['consumer_key'], cfg['consumer_secret'])
+        auth = tweepy.OAuthHandler(cfg['api_key'], cfg['api_key_secret'])
         auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
         return tweepy.API(auth)
 
 def main():
         #Here we are defining the parameters for accessing Twitter's API securely, fill in the key with your corresponding twitter credentials
         cfg = {
-                "consumer_key": "TWTTER_CONSUMER_KEY",
-                "consumer_secret"       :       "TWITTER_CONSUMER_SECRET",
+                "api_key": "TWITTER_API_KEY",
+                "api_key_secret"       :       "TWITTER_API_KEY_SECRET",
                 "access_token"          :       "TWITTER_ACCESS_TOKEN",
                 "access_token_secret"   :       "TWITTER_ACCESS_TOKEN_SECRET"
                 }
         api = get_api(cfg)
         
         #The inital tweet that gets posted with string concatenation
-        tweet = "I am a Raspberry Pi Python scripted bot\nThis is my daily #Pihole report:\n" + data  + "\n\nTime and date: " + datetime.datetime.today().strftime("%H:%M %m-%d-%Y")
+        tweet = "\nMy #Pihole Report For Last 24hrs:\n" + data  + "\n\nTime and date: " + datetime.datetime.today().strftime("%H:%M %d-%m-%Y")
         status = api.update_status(status=tweet)
         print(tweet)
         
